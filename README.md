@@ -73,3 +73,9 @@ download them by running this script:
 If the script doesn't work for some reason, you can download the databases
 directly from
 [codecrafters-io/sample-sqlite-databases](https://github.com/codecrafters-io/sample-sqlite-databases).
+
+
+[remote "cc"]
+	url = https://git.codecrafters.io/4eaeb3335aae2467
+	fetch = +refs/heads/*:refs/remotes/cc/*
+
