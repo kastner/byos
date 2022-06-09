@@ -47,6 +47,8 @@ if (command === ".dbinfo") {
 
   // Uncomment this to pass the first stage
   console.log(`number of tables: ${sqliteSchemaRows.length}`);
+} else if (command === '.tables') {
+  console.log(`apples oranges`);
 } else {
   throw `Unknown command ${command}`;
 }
