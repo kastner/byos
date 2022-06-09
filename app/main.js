@@ -7,7 +7,7 @@ import readVarint from "./read-varint.js";
 const databaseFilePath = process.argv[2];
 const command = process.argv[3];
 
-if (command === ".dbinfo") {
+if (command === ".dbinfo" || command === ".tables") {
   const databaseFile = new DatabaseFile(databaseFilePath);
 
   await databaseFile.open();
@@ -45,10 +45,12 @@ if (command === ".dbinfo") {
   // You can use print statements as follows for debugging, they'll be visible when running tests.
   console.log("Logs from your program will appear here!");
 
-  // Uncomment this to pass the first stage
-  console.log(`number of tables: ${sqliteSchemaRows.length}`);
-} else if (command === '.tables') {
-  console.log(`apples oranges`);
+
+  if (command === ".tables") {
+    console.log(sqliteSchemaRows.map((row) => (row.tbl_name)).join(" "))
+  } else {
+    console.log(`number of tables: ${sqliteSchemaRows.length}`);
+  }
 } else {
   throw `Unknown command ${command}`;
 }
